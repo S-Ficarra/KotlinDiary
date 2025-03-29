@@ -18,13 +18,20 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.mydiary.viewmodel.StoryViewModel
+import org.koin.androidx.compose.koinViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextInput (navController: NavController) {
-    var text = remember { mutableStateOf("") }
+
+    val viewModel: StoryViewModel = koinViewModel()
+    val text = viewModel.state.value.story
+
 
     Column (
     ) {
@@ -37,8 +44,8 @@ fun TextInput (navController: NavController) {
             fontWeight = FontWeight.Black,
             color = Color.Black)
         TextField(
-            value = text.value,
-            onValueChange = { newText -> text.value = newText },
+            value = text,
+            onValueChange = { newText -> viewModel.updateStory(newText) },
             textStyle = TextStyle(color = Color.Black),
             placeholder = { Text("Écrire ici les évènements de ma journée") },
             modifier = Modifier
@@ -59,7 +66,7 @@ fun TextInput (navController: NavController) {
                 .padding(end = 16.dp),
             horizontalArrangement = Arrangement.End
             ) {
-                ClickableButton("Publier", action = { navController.navigate("HomePage") }, 16
+                ClickableButton("Publier", action = { viewModel.saveStory() }, 16
             )
         }
 

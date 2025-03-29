@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyDiaryTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    Navigation() // Appelle la navigation
+                    Navigation()
                 }
             }
         }
