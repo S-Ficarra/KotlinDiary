@@ -38,7 +38,7 @@ fun HomePage (navController: NavController) {
             fontWeight = FontWeight.Black,
             color = Color.Black)
         Spacer(modifier = Modifier.height(20.dp))
-        ClickableButton("Ouvrir >", action = { navController.navigate("Diary") }, 16 )
+        ClickableButton("Ouvrir >", action = { navController.navigate("Diary") }, 16, true )
         Spacer(modifier = Modifier.weight(.5f))
         Box(
             modifier = Modifier

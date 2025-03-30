@@ -1,40 +1,28 @@
 package com.example.mydiary.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import com.example.mydiary.viewmodel.StoryViewModel
 import org.koin.androidx.compose.koinViewModel
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextInput (navController: NavController) {
+fun TextInput () {
 
     val viewModel: StoryViewModel = koinViewModel()
     val text = viewModel.state.value.story
 
 
-    Column (
-    ) {
+    Column {
         Text(
             modifier = Modifier
                 .padding(16.dp),
@@ -55,7 +43,7 @@ fun TextInput (navController: NavController) {
                 .background(Color.White, shape = RoundedCornerShape(8.dp)),
             maxLines = Int.MAX_VALUE,
             singleLine = false,
-            colors = TextFieldDefaults.textFieldColors(
+            colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = Color(124, 232, 196),
                 unfocusedIndicatorColor = Color.Gray
             )
@@ -66,7 +54,7 @@ fun TextInput (navController: NavController) {
                 .padding(end = 16.dp),
             horizontalArrangement = Arrangement.End
             ) {
-                ClickableButton("Publier", action = { viewModel.saveStory() }, 16
+                ClickableButton("Publier", action = { viewModel.saveStory() }, 16, true
             )
         }
 

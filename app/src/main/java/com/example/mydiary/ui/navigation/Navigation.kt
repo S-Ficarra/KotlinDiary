@@ -49,7 +49,7 @@ fun Navigation() {
         }
         // Déclare screens "Diary"
         composable("Diary") {
-            Diary(navController)
+            Diary()
         }
     }
 }

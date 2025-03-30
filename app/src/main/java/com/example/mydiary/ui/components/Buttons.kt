@@ -11,9 +11,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ClickableButton(text: String, action: () -> Unit, padding: Int) {
+fun ClickableButton(text: String, action: () -> Unit, padding: Int, enabled : Boolean ) {
     Button(
         onClick = { action() },
+        enabled = enabled,
         colors = ButtonDefaults.buttonColors(
             containerColor = Color(124, 232, 196),
             contentColor = Color.Black

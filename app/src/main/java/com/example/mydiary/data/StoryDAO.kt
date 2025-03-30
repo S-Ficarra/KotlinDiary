@@ -12,4 +12,7 @@ interface StoryDAO {
     @Query("SELECT * FROM storyEntity")
     suspend fun allStories() : List<StoryEntity>
 
+    @Query("SELECT * FROM storyEntity LIMIT 1")
+    suspend fun getFirstStory(): StoryEntity?
+
 }
