@@ -20,6 +20,7 @@ fun Story() {
     val viewModel: StoryViewModel = koinViewModel()
     val stories = viewModel.state.value.stories
     val currentStoryIndex = viewModel.state.value.currentStoryIndex
+    val currentStory = stories[currentStoryIndex]
 
     fun formatDate(timestamp: Long): String {
         val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH)
@@ -27,7 +28,6 @@ fun Story() {
         return dateFormat.format(date)
     }
 
-    val currentStory = stories[currentStoryIndex]
 
     Column {
         Column(

@@ -6,13 +6,11 @@ import androidx.room.Query
 
 @Dao
 interface StoryDAO {
+
     @Insert
     suspend fun insertStory(story: StoryEntity): Long
 
     @Query("SELECT * FROM storyEntity")
     suspend fun allStories() : List<StoryEntity>
-
-    @Query("SELECT * FROM storyEntity LIMIT 1")
-    suspend fun getFirstStory(): StoryEntity?
 
 }

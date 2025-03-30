@@ -18,6 +18,7 @@ import com.example.mydiary.ui.components.TopContainer
 
 @Composable
 fun HomePage (navController: NavController) {
+
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -49,6 +50,7 @@ fun HomePage (navController: NavController) {
                     shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp)
                 )
         )
-
     }
+
+
 }

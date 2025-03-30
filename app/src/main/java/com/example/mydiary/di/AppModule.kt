@@ -20,4 +20,5 @@ val appModule = module {
     viewModel {
         StoryViewModel(get())
     }
+
 }

@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun ClickableButton(text: String, action: () -> Unit, padding: Int, enabled : Boolean ) {
+
+
     Button(
         onClick = { action() },
         enabled = enabled,
@@ -27,4 +29,6 @@ fun ClickableButton(text: String, action: () -> Unit, padding: Int, enabled : Bo
             fontSize = 16.sp,
         )
     }
+
+
 }

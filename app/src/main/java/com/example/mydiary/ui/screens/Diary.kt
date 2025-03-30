@@ -9,6 +9,8 @@ import com.example.mydiary.ui.components.*
 
 @Composable
 fun Diary() {
+
+
     Column(
         modifier = Modifier
             .fillMaxSize(),

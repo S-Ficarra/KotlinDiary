@@ -19,9 +19,6 @@ fun AllStories () {
     val currentStoryIndex = viewModel.state.value.currentStoryIndex
 
 
-
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -37,9 +34,9 @@ fun AllStories () {
         )
         if (stories.isNotEmpty()) {
 
-            Story()
-        Spacer(modifier = Modifier.weight(1f))
+        Story()
 
+        Spacer(modifier = Modifier.weight(1f))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
