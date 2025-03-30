@@ -20,46 +20,55 @@ fun AllStories () {
 
 
 
-    if (stories.isNotEmpty()) {
 
-        Column(
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Text(
             modifier = Modifier
-                .fillMaxSize()
+                .padding(16.dp),
+            style = MaterialTheme.typography.headlineMedium,
+            text = "Mes histoires passées",
+            fontSize = 32.sp,
+            fontWeight = FontWeight.Black,
+            color = Color.Black
+        )
+        if (stories.isNotEmpty()) {
+
+            Story()
+        Spacer(modifier = Modifier.weight(1f))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            horizontalArrangement = Arrangement.Center
         ) {
+            ClickableButton(
+                "Page précédente",
+                action = { viewModel.previousStory() },
+                10,
+                enabled = currentStoryIndex > 0
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            ClickableButton(
+                "Page suivante",
+                action = { viewModel.nextStory() },
+                10,
+                enabled = currentStoryIndex < stories.size - 1
+            )
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+        }
+        else {
             Text(
                 modifier = Modifier
-                    .padding(16.dp),
-                style = MaterialTheme.typography.headlineMedium,
-                text = "Mes histoires passées",
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Black,
-                color = Color.Black
-            )
-            Story()
-            Spacer(modifier = Modifier.weight(1f))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                ClickableButton(
-                    "Page précédente",
-                    action = { viewModel.previousStory() },
-                    10,
-                    enabled = currentStoryIndex > 0
-                )
-                Spacer(modifier = Modifier.width(10.dp))
-                ClickableButton(
-                    "Page suivante",
-                    action = { viewModel.nextStory() },
-                    10,
-                    enabled = currentStoryIndex < stories.size - 1
-                )
-            }
-            Spacer(modifier = Modifier.height(20.dp))
+                    .padding(start = 16.dp),
+                text = "Aucune histoire pour le moment")
 
         }
     }
+
 }

@@ -27,29 +27,26 @@ fun Story() {
         return dateFormat.format(date)
     }
 
-    if (stories.isNotEmpty()) {
-        val currentStory = stories[currentStoryIndex]
+    val currentStory = stories[currentStoryIndex]
 
-        Column {
-            Column(
-                modifier = Modifier
-                    .padding(start = 40.dp, end = 40.dp)
-            ) {
-                Text(
-                    fontWeight = FontWeight.Black,
-                    text = "${formatDate(currentStory.date)} :"
-                )
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    fontStyle = FontStyle.Italic,
-                    text = currentStory.story
-                )
-            }
-            Spacer(modifier = Modifier.height(20.dp))
+    Column {
+        Column(
+            modifier = Modifier
+                .padding(start = 40.dp, end = 40.dp)
+        ) {
+            Text(
+                fontWeight = FontWeight.Black,
+                text = "${formatDate(currentStory.date)} :"
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                fontStyle = FontStyle.Italic,
+                text = currentStory.story
+            )
         }
-    } else {
-        Text("Aucune histoire pour le moment")
+        Spacer(modifier = Modifier.height(20.dp))
     }
+
 }
 
 

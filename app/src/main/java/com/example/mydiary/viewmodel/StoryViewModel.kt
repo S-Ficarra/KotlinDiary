@@ -58,6 +58,7 @@ class StoryViewModel(private val db : AppDatabase) : ViewModel() {
                         )
                     )
                     state.value = state.value.copy(story = "")
+                    loadAllStories()
                 } catch (e: Exception) {
                     Log.e("StoryViewModel", "Erreur lors de l'enregistrement de l'histoire", e)
                 }
